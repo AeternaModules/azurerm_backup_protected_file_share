@@ -1,3 +1,7 @@
+output "backup_protected_file_shares_id" {
+  description = "Map of id values across all backup_protected_file_shares, keyed the same as var.backup_protected_file_shares"
+  value       = { for k, v in azurerm_backup_protected_file_share.backup_protected_file_shares : k => v.id }
+}
 output "backup_protected_file_shares_backup_policy_id" {
   description = "Map of backup_policy_id values across all backup_protected_file_shares, keyed the same as var.backup_protected_file_shares"
   value       = { for k, v in azurerm_backup_protected_file_share.backup_protected_file_shares : k => v.backup_policy_id }
